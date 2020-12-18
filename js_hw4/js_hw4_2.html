@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const cart = [
+        product1={
+        quantity:5,
+            price:15,
+        },
+        product1={
+            quantity:5,
+            price:15,
+        },
+        product1={
+            quantity:5,
+            price:15,
+        }
+    ]
+    function getItemSum() {
+        let totalSum = 0;
+        let priceValue = 0;
+
+        for (let i = 0; i < cart.length; i++) {
+            priceValue = cart [i].price * cart [i].quantity;
+            totalSum = totalSum + priceValue;
+
+        }
+        return totalSum;
+    }
+    let result=getItemSum();
+
+    console.log(result);
+</script>
+</body>
+</html>
