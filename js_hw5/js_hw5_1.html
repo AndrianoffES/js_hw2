@@ -1,10 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+
+    function chess(){
+        let table = document.createElement('table');
+        document.body.appendChild(table);
+        table.style.width = '1000px'
+        table.style.height = '1000px'
+
+
+        for (let i =0; i<9;i++){
+            var tr = document.createElement('tr');
+            table.appendChild(tr);
+
+            for (let i =0; i<1;i++){
+                let th = document.createElement('th');
+                tr.appendChild(th);
+            }
+            for (let i =0; i<8;i++){
+                var td = document.createElement('td');
+                tr.appendChild(td)
+                td.style.width = '100px'
+            }
+
+        }
+
+        let elemTable = table.childNodes;
+        let firstRow = elemTable.item(0);
+        let row2 = elemTable.item(1);
+        let row3 = elemTable.item(2);
+        let row4 = elemTable.item(3);
+        let row5 = elemTable.item(4);
+        let row6 = elemTable.item(5);
+        let row7 = elemTable.item(6);
+        let row8 = elemTable.item(7);
+        let row9 = elemTable.item(8);
+
+        for (let i =0; i<8;i++){
+            let th = document.createElement('th');
+            firstRow.prepend(th);
+
+        }
+        for (let i =0; i<8;i++){
+            firstRow.removeChild(firstRow.lastChild)
+        }
+
+        table.style.border = '1px solid'
+
+        for(let i=1;i<elemTable.length;i++) {
+            let row = elemTable.item(i);
+            let elemRow = row.childNodes;
+            if (i % 2 == 0) {
+                for (let i = 1; i < elemRow.length; i++) {
+                    var colorCell;
+                    if (i % 2 == 0) {
+                        colorCell = 'black';
+                    } else {
+                        colorCell = 'bisque'
+                    }
+                    elemRow[i].style.background = colorCell;
+                }
+
+
+            } else {
+                for (let i = 1; i < elemRow.length; i++) {
+                    var colorCell;
+                    if (i % 2 == 0) {
+                        colorCell = 'bisque';
+                    } else {
+                        colorCell = 'black'
+                    }
+                    elemRow[i].style.background = colorCell;
+                }
+
+            }
+
+        }
+        let thLetters = firstRow.childNodes;
+        let th1 = thLetters.item(1);
+        th1.textContent = 'A';
+        let th2 = thLetters.item(2);
+        th2.textContent = 'B';
+        let th3 = thLetters.item(3);
+        th3.textContent = 'C';
+        let th4 = thLetters.item(4);
+        th4.textContent = 'D';
+        let th5 = thLetters.item(5);
+        th5.textContent = 'I';
+        let th6 = thLetters.item(6);
+        th6.textContent = 'F';
+        let th7 = thLetters.item(7);
+        th7.textContent = 'G';
+        let th8 = thLetters.item(8);
+        th8.textContent = 'H';
+        let letter1 = row2.firstChild
+        letter1.textContent = '8';
+        let letter2 = row3.firstChild
+        letter2.textContent = '7';
+        let letter3 = row4.firstChild
+        letter3.textContent = '6';
+        let letter4 = row5.firstChild
+        letter4.textContent = '5';
+        let letter5 = row6.firstChild
+        letter5.textContent = '4';
+        let letter6 = row7.firstChild
+        letter6.textContent = '3';
+        let letter7 = row8.firstChild
+        letter7.textContent = '2';
+        let letter8 = row9.firstChild
+        letter8.textContent = '1';
+    }
+
+chess();
+</script>
 </body>
 </html>
