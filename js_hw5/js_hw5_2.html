@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="cart"></div>
+
+<script>
+    let cart = {
+        goods: [
+            {
+                productName: "product1",
+                quantity: 3,
+                price: 10,
+            },
+            {
+                productName: "product2",
+                quantity: 8,
+                price: 10,
+            },
+            {
+                productName: "product3",
+                quantity: 11,
+                price: 10,
+            },
+
+        ],
+        countTotalSum() {
+            return this.goods.reduce((totalSum, goodCart) => totalSum += goodCart.price * goodCart.quantity, 0)
+        },
+        countTotalGoods(){
+            return this.goods.reduce((totalGoods, goodsCart) => totalGoods += goodsCart.quantity, 0)
+        },
+
+    };
+    let totalGoodsInCart = cart.countTotalGoods();
+    //console.log(totalGoodsInCart);
+    let totalSum = cart.countTotalSum();
+    let h3 = document.createElement('h3');
+    let cartDiv = document.querySelector('div');
+    cartDiv.prepend(h3);
+
+
+    if (totalGoodsInCart==0){
+
+        h3.innerText = "Корзина пуста";
+    }
+    else {
+
+        h3.innerText = "В корзине " + totalGoodsInCart + " товаров на сумму " + totalSum + " рублей";
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="catalog"></div>
+<script>
+    let catalog = {
+        goods:[
+            {
+                name: "Macbook",
+                article: "01",
+                price: "100000",
+            },
+            {
+                name: "Ipad",
+                article: "02",
+                price: "35000",
+            },
+            {
+                name: "Sony PS",
+                article: "03",
+                price: "45000",
+            },
+            {
+                name: "X-box",
+                article: "04",
+                price: "45000",
+            },
+        ],
+        eductionCatalog(){
+            return this.goods.map(items => items)
+        },
+
+    }
+   let catObj = catalog.eductionCatalog();
+    let catDiv = document.getElementById("catalog");
+
+//  НЕ СМОГ ПРИДУМАТЬ КАК СДЕЛАТЬ ЧТОБЫ СТРОКИ КАТАЛОГА ПЕРЕНСИЛИСЬ
+        catObj.forEach((products) =>{
+         let catP = `${products.name} Цена: ${products.price} `;
+         catDiv.prepend(catP);
+        })
+
+
+// МОЖНО ТАК, НО МНЕ КАЖЕТСЯ ИСПОЛЬЗОВАТЬ ТУТ document.write НЕ ПРАВИЛЬНО
+
+    catObj.forEach((products) =>{
+        document.write(`<div id="catalog">${products.name} <br> Цена: ${products.price}</div>`) ;
+
+    })
+
+
+</script>
+</body>
+</html>

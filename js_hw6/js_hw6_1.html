@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .goodsCat{
+        border: 1px solid grey;
+        padding: 5px;
+        background-color: darkgray;
+    }
+    .good{
+        border: 1px solid grey;
+        padding: 5px;
+        background-color: antiquewhite;
+    }
+</style>
+<div class="goodsCat"></div>
+<div class="cartList"></div>
+<button class="cartBtn">Очистить корзину</button>
+
+<script>
+  const  catalogItem = {
+        render(good) {
+            return `<div class="good">
+                    <div><b>Артикул:</b>: ${good.article}</div>
+                    <div><b>Наименование</b>: ${good.name}</div>
+                    <div><b>Цена</b>: ${good.price}</div>
+                    <button id="addGood" class="catBtn" data-article="${good.article}" data-name="${good.name}"
+                    data-price="${good.price}">Добавить в корзину</button>
+                </div>`;
+        }
+    }
+    const goodsCatalog = {
+      catalogItem,
+        catListDiv:null,
+        catBtn:null,
+        goods:[
+            {
+                name: "Macbook",
+                article: "01",
+                price: "100000",
+            },
+            {
+                name: "Ipad",
+                article: "02",
+                price: "35000",
+            },
+            {
+                name: "Sony PS",
+                article: "03",
+                price: "45000",
+            },
+            {
+                name: "X-box",
+                article: "04",
+                price: "45000",
+            },
+        ],
+
+        init(){
+          this.catListDiv = document.querySelector('.goodsCat');
+          this.render();
+
+        },
+
+        render() {
+
+                this.goods.forEach(good =>
+                {this.catListDiv.insertAdjacentHTML('beforeend', this.catalogItem.render(good));
+                });
+
+        },
+
+    }
+
+    goodsCatalog.init();
+
+
+  const cartItem = {
+      render(good) {
+          return `<div class="good">
+                    <div><b>Артикул:</b>: ${good.article}</div>
+                    <div><b>Наименование</b>: ${good.name}</div>
+                    <div><b>Цена</b>: ${good.price}</div>
+                    <div><b>Стоимость</b>: ${good.price} * ${good.quantity}</div>
+                </div>`;
+      }
+
+  }
+  const cart = {
+      cartBtn: null,
+      cartListDiv: null,
+      cartItem,
+      goods:[
+          {
+              name: "Macbook",
+              article: "01",
+              price: "100000",
+          },
+          {
+              name: "Ipad",
+              article: "02",
+              price: "35000",
+          },
+          {
+              name: "Sony PS",
+              article: "03",
+              price: "45000",
+          },
+          {
+              name: "X-box",
+              article: "04",
+              price: "45000",
+          },
+      ],
+      init() {
+          this.cartListDiv = document.querySelector('.cartList');
+          this.cartBtn = document.querySelector('.cartBtn');
+          console.log('инит работает')
+          this.render();
+      },
+
+      render(){
+          this.goods.forEach(good =>{
+              this.cartListDiv.insertAdjacentHTML('beforeend', this.cartItem.render(good))
+          })
+      }
+  }
+  cart.init()
+</script>
+
+</body>
+</html>
